@@ -24,8 +24,59 @@ If the arrival of materials follow poisson process with mean interval time 12 se
 <img width="847" height="255" alt="image" src="https://github.com/user-attachments/assets/f5b78f76-ddef-4bcd-afee-044fb0babdc8" />
 
 # Program
+```
+Name: Sowmiya R
+Reg No: 25013295
+Slot Name: 3P1-1
+```
+
+```
+arr_time=float(input("Enter the mean inter arrival time of objects from Feeder (in secs)")) 
+ser_time=float(input("Enter the mean inter servie time of Lathe Machine (in secs):")) 
+Robot_time=float(input("Enter the Additional time taken for the Robot (in secs):")) 
+lam=1/arr_time 
+mu=1/(ser_time+Robot_time) 
+print("----------------------------------------") 
+print("Single Server with Infinite Capacity-(M/M/1):(00/FIFO)") 
+print("----------------------------------------") 
+print("The mean arrival rate per second: %0.2f "%lam)
+print("The mean service rate per second: %0.2f "%mu) 
+if(lam<mu): 
+ Ls=lam/(mu-lam) 
+ Lq=Ls-lam/mu 
+ Ws=Ls/lam 
+ Wq=Lq/lam 
+ print("Average number of objects in the system: %0.2f"%Ls) 
+ print("Average number of objects in the conveyer: %0.2f"%Lq) 
+ print("Average time spent by an object in the system: %0.2f"%Ws) 
+ print("Average time spent by an object in the conveyer: %0.2f"%Wq) 
+ print("Probability that the system is busy: %0.2f "%(lam/mu)) 
+ print("Probability that the system is empty: %0.2f "%(1-lam/mu)) 
+else: 
+ print("Warning! Objects overflow will happen in the conveyer") 
+print("----------------------------------------")
+```
+
+https://colab.research.google.com/drive/1GEVGnj-t9fnQkwX7F-tA3yp1_ixNMVwR?usp=sharing
 
 # Output
+```
+Enter the mean inter arrival time of objects from Feeder (in secs)12
+Enter the mean inter servie time of Lathe Machine (in secs):1
+Enter the Additional time taken for the Robot (in secs):7
+----------------------------------------
+Single Server with Infinite Capacity-(M/M/1):(00/FIFO)
+----------------------------------------
+The mean arrival rate per second: 0.08 
+The mean service rate per second: 0.12 
+Average number of objects in the system: 2.00
+Average number of objects in the conveyer: 1.33
+Average time spent by an object in the system: 24.00
+Average time spent by an object in the conveyer: 16.00
+Probability that the system is busy: 0.67 
+Probability that the system is empty: 0.33 
+----------------------------------------
+```
 
 # Result
        The average number of material in the system and in the conveyor and waiting time are successfully found.
